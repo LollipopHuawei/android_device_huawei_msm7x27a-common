@@ -5,15 +5,15 @@ Subject: [PATCH] Add setting for vold switchable pair
 
 Change-Id: Ie697b747d3b8a1a09b2a1c52aa653393f6172f0c
 ---
- res/values/slim_strings.xml                     |  7 ++++
+ res/values/cm_strings.xml                     |  7 ++++
  res/xml/device_info_memory.xml                  |  6 +++
  src/com/android/settings/deviceinfo/Memory.java | 53 ++++++++++++++++++++++++-
  3 files changed, 65 insertions(+), 1 deletion(-)
 
-diff --git a/res/values/slim_strings.xml b/res/values/slim_strings.xml
+diff --git a/res/values/cm_strings.xml b/res/values/cm_strings.xml
 index 75d31f0..45deb38 100644
---- a/res/values/slim_strings.xml
-+++ b/res/values/slim_strings.xml
+--- a/res/values/cm_strings.xml
++++ b/res/values/cm_strings.xml
 @@ -131,6 +131,13 @@
      <string name="ime_switcher_notify">Selector notification</string>
      <string name="ime_switcher_notify_summary">Display input method selector notification</string>
