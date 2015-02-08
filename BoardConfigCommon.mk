@@ -20,7 +20,6 @@
 # The proprietary variant sets USE_CAMERA_STUB := false, this way
 # we use the camera stub when the vendor tree isn't present, and
 # the true camera library when the vendor tree is available.
-USE_CAMERA_STUB := true
 
 # Inherit from the proprietary version
 -include vendor/huawei/msm7x27a-common/BoardConfigVendor.mk
@@ -43,6 +42,10 @@ TARGET_BOARD_PLATFORM := msm7x27a
 TARGET_BOARD_PLATFORM_GPU := qcom-adreno200
 
 ARCH_ARM_HAVE_TLS_REGISTER := true
+
+# Webkit
+PRODUCT_PREBUILT_WEBVIEWCHROMIUM := yes
+TARGET_FORCE_CPU_UPLOAD := true
 
 # Qualcomm hardware
 BOARD_USES_QCOM_HARDWARE := true
@@ -73,6 +76,7 @@ BOARD_USES_LEGACY_ALSA_AUDIO := true
 BOARD_HAVE_BLUETOOTH := true
 
 # Camera
+USE_CAMERA_STUB := true
 USE_DEVICE_SPECIFIC_CAMERA := true
 
 # GPS
