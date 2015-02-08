@@ -25,6 +25,10 @@ USE_CAMERA_STUB := true
 # Inherit from the proprietary version
 -include vendor/huawei/msm7x27a-common/BoardConfigVendor.mk
 
+ 
+TARGET_GLOBAL_CFLAGS += -mfloat-abi=softfp -mfpu=neon-vfpv4 -mtune=cortex-a5
+TARGET_GLOBAL_CPPFLAGS += -mfloat-abi=softfp -mfpu=neon-vfpv4 -mtune=cortex-a5
+
 TARGET_NO_BOOTLOADER := true
 TARGET_NO_RADIOIMAGE := true
 
@@ -39,8 +43,6 @@ TARGET_BOARD_PLATFORM := msm7x27a
 TARGET_BOARD_PLATFORM_GPU := qcom-adreno200
 
 ARCH_ARM_HAVE_TLS_REGISTER := true
-
-TARGET_ARCH_LOWMEM := true
 
 # Qualcomm hardware
 BOARD_USES_QCOM_HARDWARE := true
@@ -57,7 +59,6 @@ TARGET_USES_16BPPSURFACE_FOR_OPAQUE := true
 ARCH_ARM_HIGH_OPTIMIZATION := true
 ARCH_ARM_HAVE_32_BYTE_CACHE_LINES := true
 TARGET_GRALLOC_USES_ASHMEM := true
-
 
 BOARD_WANTS_EMMC_BOOT := true
 
@@ -144,6 +145,11 @@ ifeq ($(HOST_OS),linux)
     endif
   endif
 endif
+
+# Enable Minikin text layout engine
+USE_MINIKIN := true
+
+$(call inherit-product, frameworks/native/build/phone-hdpi-512-dalvik-heap.mk)
 
 # Include an expanded selection of fonts
 EXTENDED_FONT_FOOTPRINT := true

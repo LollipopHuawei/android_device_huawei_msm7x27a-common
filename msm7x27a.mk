@@ -24,8 +24,6 @@ DEVICE_PACKAGE_OVERLAYS += device/huawei/msm7x27a-common/overlay
 PRODUCT_AAPT_CONFIG := normal hdpi
 PRODUCT_AAPT_PREF_CONFIG := hdpi
 
-PRODUCT_TAGS += dalvik.gc.type-precise
-
 # Packages
 PRODUCT_PACKAGES += \
     audio.primary.msm7x27a \
@@ -129,6 +127,12 @@ PRODUCT_PROPERTY_OVERRIDES += \
 
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.cwm.enable_key_repeat=true
+    
+# Dalvik	
+PRODUCT_PROPERTY_OVERRIDES += \
+    dalvik.vm.jit.codecachesize=0
+    
+PRODUCT_TAGS += dalvik.gc.type-precise
 
 PRODUCT_PROPERTY_OVERRIDES += \
     debug.composition.type=dyn \
@@ -143,7 +147,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
     persist.sys.force_highendgfx=true
 
 PRODUCT_PROPERTY_OVERRIDES += \
-    dalvik.vm.heapgrowthlimit=48m \
+    dalvik.vm.heapgrowthlimit=52m \
     dalvik.vm.heapsize=128m \
     ro.config.low_ram=false
 
@@ -158,6 +162,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
     rild.libargs=-d/dev/smd0 \
     ro.telephony.call_ring.delay=100 \
     ro.telephony.call_ring.multiple=false
+    ro.telephony.ril.config=datacallapn,signalstrength
 
 PRODUCT_PROPERTY_OVERRIDES += \
     persist.sys.usb.config=mtp,adb \
@@ -169,7 +174,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
 
 PRODUCT_PROPERTY_OVERRIDES += \
     audio.gapless.playback.disable=true \
-    ro.sys.fw.bg_apps_limit=16 \
+    ro.sys.fw.bg_apps_limit=20 \
     ro.config.max_starting_bg=8
 
 # Stagefright
@@ -185,5 +190,10 @@ PRODUCT_PROPERTY_OVERRIDES += \
 # Newer camera API isn't supported.
 PRODUCT_PROPERTY_OVERRIDES += \
    camera2.portability.force_api=1
+   
+# AwesomePlayer
+PRODUCT_PROPERTY_OVERRIDES += \
+    persist.sys.media.use-awesome=true \
+    audio.offload.disable=1
 
 $(call inherit-product, vendor/huawei/msm7x27a-common/msm7x27a-common-vendor.mk)
