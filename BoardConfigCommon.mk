@@ -24,7 +24,8 @@
 # Inherit from the proprietary version
 -include vendor/huawei/msm7x27a-common/BoardConfigVendor.mk
 
- 
+TARGET_SPECIFIC_HEADER_PATH := device/huawei/msm7x27a-common/include
+
 TARGET_GLOBAL_CFLAGS += -mfloat-abi=softfp -mfpu=neon-vfpv4 -mtune=cortex-a5
 TARGET_GLOBAL_CPPFLAGS += -mfloat-abi=softfp -mfpu=neon-vfpv4 -mtune=cortex-a5
 
@@ -152,8 +153,6 @@ endif
 
 # Enable Minikin text layout engine
 USE_MINIKIN := true
-
-$(call inherit-product, frameworks/native/build/phone-hdpi-512-dalvik-heap.mk)
 
 # Include an expanded selection of fonts
 EXTENDED_FONT_FOOTPRINT := true

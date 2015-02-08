@@ -127,12 +127,6 @@ PRODUCT_PROPERTY_OVERRIDES += \
 
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.cwm.enable_key_repeat=true
-    
-# Dalvik	
-PRODUCT_PROPERTY_OVERRIDES += \
-    dalvik.vm.jit.codecachesize=0
-    
-PRODUCT_TAGS += dalvik.gc.type-precise
 
 PRODUCT_PROPERTY_OVERRIDES += \
     debug.composition.type=dyn \
